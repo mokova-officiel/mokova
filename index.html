@@ -38,7 +38,6 @@ img{max-width:100%}
 .logo-img{height:26px;width:auto;display:block}
 @media(min-width:600px){.logo-img{height:30px}}
 footer .logo-img{height:44px}
-@media(prefers-color-scheme:light){.logo-img{background:#060806;border-radius:8px;padding:4px 8px}}
 .nav .cap{font-size:7px;letter-spacing:.1em;margin-top:4px;white-space:nowrap}
 .nav .btn{padding:0 10px;font-size:11px}
 .nav .r{display:flex;gap:6px;flex-shrink:0}
@@ -137,7 +136,7 @@ footer .soon{display:inline-block;border:1px solid var(--lineb);border-radius:99
 
 <header class="nav">
   <a href="#top" aria-label="MOKOVA">
-    <img class="logo-img" src="images/mokova-logo.webp" alt="MOKOVA">
+    <picture><source media="(prefers-color-scheme: light)" srcset="images/mokova-logo-jour.webp"><img class="logo-img" src="images/mokova-logo-nuit.webp" alt="MOKOVA"></picture>
     <div class="cap">Manje ou • Kote ou • Vle a</div>
   </a>
   <div class="r">
@@ -224,7 +223,7 @@ footer .soon{display:inline-block;border:1px solid var(--lineb);border-radius:99
 </main>
 
 <footer>
-  <img class="logo-img" src="images/mokova-logo.webp" alt="MOKOVA">
+  <picture><source media="(prefers-color-scheme: light)" srcset="images/mokova-logo-jour.webp"><img class="logo-img" src="images/mokova-logo-nuit.webp" alt="MOKOVA"></picture>
   <p style="color:var(--tx)">MOKOVA — Manje Ou, Kote Ou Vle A</p>
   <nav aria-label="Pied de page">
     <a href="#top">À propos</a><a href="#restaurants">Restaurants</a>
