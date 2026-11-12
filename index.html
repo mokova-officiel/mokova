@@ -66,6 +66,7 @@ h2{font-size:clamp(26px,7vw,34px);line-height:1.05;margin-bottom:20px;text-trans
 .step h3{font-size:17px;margin-bottom:2px}
 .step p{color:var(--tx2);font-size:13px}
 @media(min-width:600px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}.step{flex-direction:column;gap:6px}.zones,.why,.join{grid-template-columns:repeat(2,minmax(0,1fr))}.zones,.why,.join,.steps{gap:14px}}
+@media(orientation:landscape){body{background-image:none}:root{--colw:100%}.col{max-width:none;box-shadow:none}.steps{grid-template-columns:minmax(0,1fr)}.step{flex-direction:row;gap:14px}}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}
 .ph{position:relative;height:120px;background:#000}
