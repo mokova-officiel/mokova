@@ -1,0 +1,80 @@
+/* Couleurs */
+:root{--black:#171717;--orange:#F59E0B;--cream:#FFF8ED;--white:#FFFFFF;--muted:#5b5b5b;--line:#eadfcb;--red:#b42318;--green:#15803d}
+*{box-sizing:border-box;margin:0}
+html,body{overflow-x:hidden}
+body{font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--black);padding-bottom:140px}
+h1,h2,h3{font-weight:800;line-height:1.15}
+h1{font-size:2.1rem}h2{font-size:1.4rem;margin:24px 0 12px}h3{font-size:1.05rem}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+/* En-tête */
+.top{background:var(--black);color:var(--white);display:flex;align-items:center;gap:10px;padding:10px 16px;position:sticky;top:0;z-index:20}
+.logo{font-weight:900;font-size:1.3rem;letter-spacing:.04em;color:var(--orange);background:none;border:0;cursor:pointer;margin-right:auto}
+.top select{background:var(--black);color:var(--white);border:1px solid #555;border-radius:8px;min-height:44px;padding:0 8px}
+/* Mise en page */
+#app{max-width:1000px;margin:0 auto;padding:16px;animation:in .2s}
+@keyframes in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--white);border-radius:16px;box-shadow:0 2px 10px rgba(23,23,23,.07);overflow:hidden}
+.pad{padding:14px}
+.photo{aspect-ratio:16/9;width:100%;display:grid;place-items:center;color:var(--white)}
+.photo svg{width:44px;height:44px;opacity:.9}
+.card.link{cursor:pointer;border:0;text-align:left;width:100%;padding:0}
+.card.off{opacity:.55}
+/* Boutons */
+.btn{min-height:44px;padding:0 18px;border-radius:12px;border:2px solid var(--black);background:var(--white);font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn.primary{background:var(--orange);border-color:var(--orange);color:var(--black)}
+.btn.dark{background:var(--black);color:var(--white)}
+.btn.block{width:100%}.btn[disabled]{opacity:.45;cursor:not-allowed}
+.qty{display:inline-flex;align-items:center;gap:6px}
+.qty button{width:44px;height:44px;border-radius:50%;border:2px solid var(--black);background:var(--white);font-size:1.3rem;font-weight:800;cursor:pointer}
+.qty b{min-width:24px;text-align:center}
+.price{color:#b45309;font-weight:800;font-size:1.1rem}
+.badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.875rem;font-weight:700;background:var(--black);color:var(--white)}
+.badge.open{background:var(--green)}.badge.closed{background:var(--red)}
+.muted{color:var(--muted);font-size:.9375rem}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px}
+.chip{flex:none;min-height:44px;padding:0 16px;border-radius:99px;border:2px solid var(--black);background:var(--white);font-weight:700;cursor:pointer}
+.chip.on{background:var(--black);color:var(--orange)}
+/* Vitrine */
+.hero{background:var(--black);color:var(--white);border-radius:20px;padding:28px 20px;margin-bottom:8px}
+.hero h1{color:var(--orange);font-size:2.4rem}
+.hero p{margin:10px 0 18px;font-size:1.15rem}
+.hero .row{flex-wrap:wrap;justify-content:flex-start}
+.hero select{min-height:48px;border-radius:12px;padding:0 12px;flex:1;min-width:200px}
+.steps{counter-reset:s}.steps .card{padding:16px;position:relative}
+.steps .card::before{counter-increment:s;content:counter(s);position:absolute;right:14px;top:10px;font-size:2rem;font-weight:900;color:var(--orange)}
+.soon{background:var(--white);border:2px dashed var(--orange);border-radius:16px;padding:14px;margin:20px 0}
+footer.foot{background:var(--black);color:var(--white);margin-top:30px;padding:24px 16px;border-radius:20px}
+footer.foot a{color:var(--orange);cursor:pointer;display:inline-block;padding:10px 12px 10px 0;text-decoration:underline;background:none;border:0}
+/* Formulaires */
+label{display:block;font-weight:700;margin:12px 0 4px}
+input,select,textarea{width:100%;min-height:44px;padding:8px 12px;border:2px solid var(--line);border-radius:10px;background:var(--white)}
+.err{color:var(--red);font-size:.9375rem;margin-top:4px}
+.field.bad input,.field.bad select{border-color:var(--red)}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pay button{min-height:56px;border-radius:12px;border:2px solid var(--line);background:var(--white);font-weight:700;cursor:pointer}
+.pay button.on{border-color:var(--orange);background:#fff3d6}
+.sum div{display:flex;justify-content:space-between;padding:6px 0}
+.sum .tot{border-top:2px solid var(--black);font-weight:800;font-size:1.2rem}
+/* Suivi */
+.prog{display:flex;gap:4px;margin:14px 0}
+.prog i{flex:1;height:10px;border-radius:6px;background:var(--line);transition:background .4s}
+.prog i.on{background:var(--orange)}
+.code{font-size:2.2rem;font-weight:900;letter-spacing:.25em;background:var(--black);color:var(--orange);border-radius:14px;padding:10px 16px;text-align:center}
+ul.hist{list-style:none;padding:0}ul.hist li{padding:6px 0;border-bottom:1px solid var(--line)}
+/* Barre panier + nav */
+#cartbar{position:fixed;left:0;right:0;bottom:68px;padding:0 12px;z-index:15;display:flex;justify-content:center}
+.cb{max-width:600px;width:100%;background:var(--orange);border:0;border-radius:16px;min-height:56px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.tabs{position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--black);display:flex;z-index:20}
+.tabs button{flex:1;background:none;border:0;color:#d4d4d4;font-size:.875rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer}
+.tabs button.on{color:var(--orange);font-weight:700}
+.tabs svg{width:24px;height:24px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;z-index:50;padding:16px}
+.modal[hidden]{display:none}.modal .box{background:var(--white);border-radius:16px;padding:20px;max-width:420px;width:100%}
+.modal .row{margin-top:16px}
+svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
