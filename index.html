@@ -16,6 +16,7 @@
 @media(prefers-color-scheme:light){:root{--bg:#F2F7F3;--panel:#fff;--line:#D3E2D8;--line2:#B4CCBB;--lineb:#7E9C88;--gt:#087A32;--tx:#09110B;--tx2:#44604D;--halo:0 4px 18px rgba(8,122,50,.28);--glow:none;--tint:rgba(8,122,50,.06);--grid:rgba(8,122,50,.08);--cardr:#fff;--colsh:0 0 0 1px var(--line),0 12px 60px rgba(10,40,20,.22)}}
 @media(min-width:600px){:root{--pad:28px;--colw:680px}}
 @media(min-width:1000px){:root{--colw:880px}}
+@media(min-width:1000px){.why{grid-template-columns:repeat(3,minmax(0,1fr))}}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;color:var(--tx);font:400 14px/1.6 'IBM Plex Mono',ui-monospace,monospace;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
@@ -66,7 +67,7 @@ h2{font-size:clamp(26px,7vw,34px);line-height:1.05;margin-bottom:20px;text-trans
 .step h3{font-size:17px;margin-bottom:2px}
 .step p{color:var(--tx2);font-size:13px}
 @media(min-width:600px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}.step{flex-direction:column;gap:6px}.zones,.why,.join{grid-template-columns:repeat(2,minmax(0,1fr))}.zones,.why,.join,.steps{gap:14px}}
-@media(orientation:landscape){body{background-image:none}:root{--colw:100%}.col{max-width:none;box-shadow:none}.steps{grid-template-columns:minmax(0,1fr)}.step{flex-direction:row;gap:14px}}
+@media(orientation:landscape) and (max-height:520px){body{background-image:none}:root{--colw:100%}.col{max-width:none;box-shadow:none}.steps{grid-template-columns:minmax(0,1fr)}.step{flex-direction:row;gap:14px}}
 .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}
 .ph{position:relative;height:120px;background:#000}
@@ -202,8 +203,8 @@ footer .soon{display:inline-block;border:1px solid var(--lineb);border-radius:99
   <div class="kick">// nos engagements</div>
   <h2>Pourquoi MOKOVA</h2>
   <div class="why">
-    <div><h3>Paiement en ligne uniquement</h3><p>Carte bancaire, MonCash ou NatCash.</p></div>
-    <div><h3>Suivi en temps réel</h3><p>Avec code de confirmation à 4 chiffres.</p></div>
+    <div><h3>Restaurants près de chez toi</h3><p>12 restaurants partenaires, cuisine haïtienne et internationale.</p></div>
+    <div><h3>Livraison rapide</h3><p>En moyenne 25 à 45 minutes, de la commande à ta porte.</p></div>
     <div><h3>Commission claire de 10 %</h3><p>Sur les plats uniquement. Le livreur garde 100 % des frais de livraison.</p></div>
   </div>
 </section>
