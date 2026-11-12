@@ -94,6 +94,9 @@ h2{font-size:clamp(26px,7vw,34px);line-height:1.05;margin-bottom:20px;text-trans
 .why h3{font-size:17px;margin-bottom:4px}
 .why p{color:var(--tx2);font-size:13px}
 .jc{border-radius:16px;padding:22px 18px}
+.jc{display:flex;flex-direction:column}
+.jc p{flex:1}
+.jc .btn{margin-top:auto;min-height:56px}
 .jc.r{background:var(--cardr);border:1px solid var(--lineb)}
 .jc.l{background:var(--g);color:#000;box-shadow:var(--halo)}
 .jc h3{font-size:24px;margin-bottom:6px}
@@ -209,7 +212,7 @@ footer .soon{display:inline-block;border:1px solid var(--lineb);border-radius:99
   <div class="kick">// rejoins-nous</div>
   <h2>Tu vends ou tu livres ?</h2>
   <div class="join">
-    <div class="jc r"><h3>Restaurant</h3><p>Fais découvrir ta cuisine à tout Port-au-Prince. Commission de 10 % sur les plats.</p><a class="btn btn-g" href="#">Devenir restaurant</a></div>
+    <div class="jc r"><h3>Restaurant</h3><p>Fais découvrir ta cuisine à de nouveaux clients. Commission de 10 % sur les plats.</p><a class="btn btn-g" href="#">Devenir restaurant</a></div>
     <div class="jc l"><span class="cap">Livreur</span><span class="big">100 %</span><p>Les frais de livraison te reviennent entièrement.</p><a class="btn" href="#">Devenir livreur</a></div>
   </div>
 </section>
@@ -234,4 +237,3 @@ setInterval(function(){var j=document.querySelector('.join');if(j){j.classList.t
 </script>
 </body>
 </html>
-
