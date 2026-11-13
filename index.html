@@ -130,7 +130,8 @@ footer p{color:var(--tx2);font-size:12px;margin-top:10px}
 footer .soon{display:inline-block;border:1px solid var(--lineb);border-radius:999px;padding:6px 12px;margin-top:14px;font-size:11px;color:var(--tx2)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.mq{overflow-x:auto}.mq div{flex-wrap:wrap;width:auto}}
 #vue-resto .hero.h2{min-height:0}
-#vue-resto .hero.h2 h1{font-size:clamp(28px,8.4vw,48px);margin-top:20px}
+#vue-resto .hero.h2 h1{font-size:clamp(26px,7vw,40px);margin-top:12px}
+#vue-resto .hero.h2 h1 .o{white-space:normal}
 #vue-resto .hero.h2 .slogan{margin:14px 0 16px}
 #vue-resto .why{grid-template-columns:minmax(0,1fr)}
 @media(min-width:600px){#vue-resto .why{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -188,7 +189,11 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
 .backbar{padding:14px var(--pr) 0 var(--pl)}
 .backbar .btn{min-height:38px;font-size:12px}
 #fbox{scroll-margin-top:76px}
-#vue-resto section{scroll-margin-top:60px}
+#vue-resto section{scroll-margin-top:60px;padding:24px var(--pr) 8px var(--pl)}
+#vue-resto h2{margin-bottom:12px}
+#vue-resto .steps{gap:8px}
+#vue-resto .step{padding:12px;gap:10px}
+#vue-resto .step .num{font-size:22px;min-width:28px}
 </style>
 </head>
 <body>
@@ -525,9 +530,9 @@ function route(){
   document.getElementById('vue-resto').hidden=!r;
   document.title=r?'Devenir restaurant — MOKOVA':T;
   var t=h.length>1?document.getElementById(h.slice(1)):null;
-  if(r&&h==='#devenir-restaurant'){window.scrollTo(0,0)}
+  if(r&&h==='#devenir-restaurant'){window.scrollTo({top:0,left:0,behavior:'instant'})}
   else if(t){t.scrollIntoView()}
-  else{window.scrollTo(0,0)}
+  else{window.scrollTo({top:0,left:0,behavior:'instant'})}
 }
 window.addEventListener('hashchange',route);
 route();
