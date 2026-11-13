@@ -51,7 +51,7 @@ img{display:block;max-width:100%}
 .chips{display:flex;gap:8px;overflow-x:auto;margin:14px calc(-1*var(--pr)) 0 calc(-1*var(--pl));padding:2px var(--pr) 6px var(--pl);scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px 0 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--tx);font:500 13px 'Instrument Sans',sans-serif;cursor:pointer;white-space:nowrap}
-.chip i{font-style:normal;font-size:15px;line-height:1}
+.chip i{display:inline-flex;font-style:normal;line-height:1}.chip i svg{width:16px;height:16px}
 .chip:hover{background:var(--soft);border-color:var(--lineb)}
 .cta{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .stats{display:flex;gap:10px;margin-top:14px}
@@ -201,25 +201,25 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
 <main id="top">
 <div class="hero">
   <div class="chips" aria-label="Types de cuisine">
-    <button type="button" class="chip"><i>🥘</i>Créole haïtienne</button>
-    <button type="button" class="chip"><i>🍤</i>Fritay</button>
-    <button type="button" class="chip"><i>🔥</i>Grillades &amp; BBQ</button>
-    <button type="button" class="chip"><i>🍗</i>Poulet</button>
-    <button type="button" class="chip"><i>🍲</i>Soupes</button>
-    <button type="button" class="chip"><i>🦐</i>Fruits de mer</button>
-    <button type="button" class="chip"><i>🍕</i>Pizzas</button>
-    <button type="button" class="chip"><i>🍔</i>Burgers</button>
-    <button type="button" class="chip"><i>🥪</i>Sandwichs</button>
-    <button type="button" class="chip"><i>🍟</i>Fast-food</button>
-    <button type="button" class="chip"><i>🥞</i>Petit-déjeuner</button>
-    <button type="button" class="chip"><i>🥗</i>Salades</button>
-    <button type="button" class="chip"><i>🥦</i>Végétarien</button>
-    <button type="button" class="chip"><i>🧁</i>Pâtisseries</button>
-    <button type="button" class="chip"><i>🧃</i>Jus</button>
-    <button type="button" class="chip"><i>🍛</i>Africaine</button>
-    <button type="button" class="chip"><i>🍜</i>Asiatique</button>
-    <button type="button" class="chip"><i>🌍</i>Internationale</button>
-    <button type="button" class="chip"><i>✨</i>Autre</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18"/><path d="M5 11v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/><path d="M8 11V8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/><path d="M12 5V3"/></svg></i>Créole haïtienne</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16c0-5.5 4.5-10 10-10 3 0 5 2 5 4.5S16.5 15 13 15s-5-2.5-5-5"/><path d="M19 6l-1.5 2.5"/></svg></i>Fritay</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 4.6 5.5 9.5a5.5 5.5 0 0 1-11 0c0-2.2 1-3.8 2.2-5.2.3 1.3 1.1 2.2 2.3 2.2.6-2.2-.1-4.5 1-6.5z"/></svg></i>Grillades &amp; BBQ</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="10.5" cy="13.5" rx="5.5" ry="4.5" transform="rotate(-35 10.5 13.5)"/><path d="M14.5 9.5 19 5"/><path d="M16.5 11.5 21 7"/></svg></i>Poulet</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.2 1-1.2 1-2.4M14 7c0-1.2 1-1.2 1-2.4"/></svg></i>Soupes</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12c2.5-3 5.5-4.5 8.5-4.5S18 9.5 20 12c-2 2.5-4.5 4.5-7.5 4.5S6.5 15 4 12z"/><circle cx="16.5" cy="11" r=".6" fill="currentColor" stroke="none"/><path d="M4 12 2 9.5M4 12l-2 2.5"/></svg></i>Fruits de mer</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16L12 21 4 5z"/><path d="M4 5c4 2 12 2 16 0"/><circle cx="12" cy="11" r="1.1" fill="currentColor" stroke="none"/><circle cx="9.5" cy="15" r="1" fill="currentColor" stroke="none"/></svg></i>Pizzas</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10a7 5 0 0 1 14 0z"/><path d="M4 13h16"/><path d="M5 16.5h14a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/></svg></i>Burgers</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14 12 5l8 9H4z"/><path d="M4 17.5h16V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19v-1.5z"/></svg></i>Sandwichs</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4l1.5 6M12 3v6M17 4l-1.5 6"/><path d="M6 10h12l-1.2 8a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 10z"/></svg></i>Fast-food</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5c3 0 7 2.5 7 6.5S16 19 12 19 5 16.5 5 12 9 5 12 5z"/><circle cx="12" cy="12" r="3"/></svg></i>Petit-déjeuner</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M12 12c0-4 2-6 5-6 0 3.5-2 6-5 6z"/></svg></i>Salades</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 10 11 4 20 4c0 9-6 15-15 15z"/><path d="M5 19c3-6 7-9 11-11"/></svg></i>Végétarien</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10h10l-1.5 8a2 2 0 0 1-2 1.7h-3A2 2 0 0 1 8.5 18L7 10z"/><path d="M7 10c0-3 2-5 5-5s5 2 5 5"/><path d="M12 5V3.5"/></svg></i>Pâtisseries</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9h10l-1.2 10a2 2 0 0 1-2 1.8H10.2a2 2 0 0 1-2-1.8L7 9z"/><path d="M6 9h12"/><path d="M14 9l1.5-5"/></svg></i>Jus</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13h16a8 8 0 0 1-16 0z"/><path d="M9 13c0-3 1.5-5 3-5s3 2 3 5"/></svg></i>Africaine</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13h16a8 8 0 0 1-16 0z"/><path d="M9 13c1-2 2-3 3-3s2 1 3 3M8.5 9.5 11 4.5M13.5 9.5 16 4.5"/></svg></i>Asiatique</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.5 2.3 3.8 5.2 3.8 8.5s-1.3 6.2-3.8 8.5c-2.5-2.3-3.8-5.2-3.8-8.5S9.5 5.8 12 3.5z"/></svg></i>Internationale</button>
+    <button type="button" class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/></svg></i>Autre</button>
   </div>
   <div class="cta">
     <a class="btn btn-g" href="#">Commander maintenant</a>
