@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light dark;--bg:#FFF8F6;--card:#fff;--outer:#F5E6EB;--line:#F0DCE2;--lineb:#E2C3CF;--tx:#2A0F1A;--tx2:#6E505B;--g:#D81B60;--gt:#D81B60;--soft:#FCE4EC;--ok:#1F7A4D;--okbg:#E3F4EA;--err:#B3261E;--sh:0 1px 2px rgba(42,15,26,.06),0 6px 20px rgba(42,15,26,.06);--colsh:0 0 0 1px var(--line),0 10px 50px rgba(42,15,26,.14);--pad:16px;--pl:max(var(--pad),env(safe-area-inset-left,0px));--pr:max(var(--pad),env(safe-area-inset-right,0px));--colw:430px;--bn:64px}
+:root{color-scheme:light dark;--bg:#FFF8F6;--card:#fff;--outer:#F5E6EB;--line:#F0DCE2;--lineb:#E2C3CF;--tx:#2A0F1A;--tx2:#6E505B;--g:#D81B60;--gt:#D81B60;--soft:#FCE4EC;--ok:#1F7A4D;--okbg:#E3F4EA;--err:#B3261E;--sh:0 1px 2px rgba(42,15,26,.06),0 6px 20px rgba(42,15,26,.06);--colsh:0 0 0 1px var(--line),0 10px 50px rgba(42,15,26,.14);--pad:16px;--pl:max(var(--pad),env(safe-area-inset-left,0px));--pr:max(var(--pad),env(safe-area-inset-right,0px));--colw:430px}
 @media(prefers-color-scheme:dark){:root{--bg:#1B0E14;--card:#2A1620;--outer:#12080C;--line:#42242F;--lineb:#5A3443;--tx:#FBEFF3;--tx2:#C9A8B5;--gt:#FF6B9A;--soft:#3A1826;--ok:#5BD28F;--okbg:#173325;--err:#FF8A80;--sh:none;--colsh:0 0 0 1px var(--line),0 0 60px rgba(0,0,0,.6)}}
 @media(min-width:600px){:root{--pad:28px;--colw:680px}}
 @media(min-width:1000px){:root{--colw:880px}}
@@ -50,8 +50,8 @@ img{display:block;max-width:100%}
 .srch:focus-within{border-color:var(--gt);outline:2px solid var(--gt);outline-offset:1px}
 .chips{display:flex;gap:8px;overflow-x:auto;margin:14px calc(-1*var(--pr)) 0 calc(-1*var(--pl));padding:2px var(--pr) 6px var(--pl);scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .chips::-webkit-scrollbar{display:none}
-.chip{flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 16px 0 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--tx);font:500 14px 'Instrument Sans',sans-serif;cursor:pointer;white-space:nowrap}
-.chip i{font-style:normal;font-size:18px;line-height:1}
+.chip{flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px 0 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--tx);font:500 13px 'Instrument Sans',sans-serif;cursor:pointer;white-space:nowrap}
+.chip i{font-style:normal;font-size:15px;line-height:1}
 .chip:hover{background:var(--soft);border-color:var(--lineb)}
 .cta{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .stats{display:flex;gap:10px;margin-top:14px}
@@ -111,18 +111,13 @@ section{scroll-margin-top:72px}
 .join.swap .jc.l .btn{background:var(--g);color:#fff}
 @media(min-width:600px){.jc{padding:22px 18px}.jc .big{font-size:76px}}
 /* pied de page */
-footer{margin-top:26px;border-top:1px solid var(--line);background:var(--card);padding:26px var(--pr) calc(var(--bn) + 28px + env(safe-area-inset-bottom,0px)) var(--pl)}
+footer{margin-top:26px;border-top:1px solid var(--line);background:var(--card);padding:26px var(--pr) calc(28px + env(safe-area-inset-bottom,0px)) var(--pl)}
 footer .logo-img{height:40px;margin:0}
 footer nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;margin:16px 0}
 @media(min-width:600px){footer nav{grid-template-columns:repeat(3,minmax(0,1fr))}}
 footer nav a{min-height:44px;display:flex;align-items:center;color:var(--tx2);font-size:14px;border-bottom:1px solid var(--line)}
 footer nav a:hover{color:var(--gt)}
 footer p{color:var(--tx2);font-size:13px;margin-top:10px}
-/* barre du bas */
-.bnav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:var(--colw);z-index:30;display:grid;grid-template-columns:repeat(3,1fr);background:var(--card);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-left,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-right,0px));box-shadow:0 -6px 20px rgba(42,15,26,.08)}
-.bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;color:var(--tx2);font:500 12px 'Instrument Sans',sans-serif;border-radius:14px}
-.bnav a:hover,.bnav a:focus-visible{color:var(--gt);background:var(--soft)}
-.bnav svg{width:24px;height:24px;stroke:currentColor}
 /* vue Devenir restaurant */
 #vue-resto .hero{padding-bottom:4px}
 #vue-resto .hero h1{font-size:clamp(28px,7.6vw,40px)}
@@ -205,12 +200,6 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
 <div id="vitrine">
 <main id="top">
 <div class="hero">
-  <h1>Manje ou,<br><span class="o">kote ou vle a.</span></h1>
-  <p class="slogan">Kòmande fasil. Resevwa kote ou vle.</p>
-  <div class="srch" role="search">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-    <input type="search" placeholder="Qu’est-ce que tu veux manger ?" aria-label="Qu’est-ce que tu veux manger ?" enterkeyhint="search">
-  </div>
   <div class="chips" aria-label="Types de cuisine">
     <button type="button" class="chip"><i>🥘</i>Créole haïtienne</button>
     <button type="button" class="chip"><i>🍤</i>Fritay</button>
@@ -396,17 +385,14 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
   </nav>
 </footer>
 
-<nav class="bnav" aria-label="Navigation principale">
-  <a href="#top"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Accueil</a>
-  <a href="#restaurants"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v8M4 3v5a3 3 0 006 0V3M7 11v10"/><path d="M17 21V3c-3 2-4 5-4 8h4"/></svg>Restaurants</a>
-  <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>Compte</a>
-</nav>
 
 </div>
 <script>
 // Photo en échec : on la masque et on garde le fond doux, sans icône.
 document.querySelectorAll('img').forEach(function(i){i.addEventListener('error',function(){i.style.visibility='hidden'})});
 setInterval(function(){var j=document.querySelector('.join');if(j){j.classList.toggle('swap')}},3000);
+var ch=document.querySelector('.chips');
+if(ch){ch.innerHTML+=ch.innerHTML;setInterval(function(){ch.scrollLeft+=1;if(ch.scrollLeft>=ch.scrollWidth/2)ch.scrollLeft=0},30)}
 (function(){
 var $=function(i){return document.getElementById(i)};
 var cur=1,TOTAL=6;
