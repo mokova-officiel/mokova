@@ -189,6 +189,17 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
 .pgnav .btn[disabled]{opacity:.4;cursor:not-allowed}
 .up.idbtn{background:var(--g);border:1.5px solid transparent;color:#fff;justify-content:center;text-align:center}
 .up.idbtn small{color:#fff}
+[hidden]{display:none!important}
+.roles{display:flex;gap:8px;margin:14px 0 4px}
+.role{flex:1;min-height:40px;border-radius:999px;border:1.5px solid var(--g);background:transparent;color:var(--gt);font:600 13px 'Outfit',sans-serif;cursor:pointer}
+.role.on{background:var(--g);color:#fff}
+.fld>span.pw{display:flex;position:relative}
+.pw input{flex:1;min-width:0;padding-right:40px}
+.eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--tx2);cursor:pointer;padding:6px;display:flex}
+.hello{display:flex;flex-direction:column;line-height:1.25;text-align:right;align-self:center}
+.hello small{font:500 10px 'Instrument Sans',sans-serif;color:var(--tx2)}
+.rstep{display:none}
+.rstep.on{display:block}
 .hid{display:none!important}
 .ok{border:1.5px solid var(--gt);background:var(--soft);border-radius:18px;padding:22px 18px;font-size:15px;line-height:1.6}
 .ok b{font-family:'Outfit',sans-serif;font-weight:700;font-size:22px;color:var(--gt);display:block;margin-bottom:8px}
@@ -206,9 +217,13 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
     <picture><source media="(prefers-color-scheme: light)" srcset="images/mokova-logo-jour.webp"><img class="logo-img" src="images/mokova-logo-nuit.webp" alt="MOKOVA"></picture>
     <div class="cap">Manje ou • Kote ou • Vle a</div>
   </a>
-  <div class="r">
-    <a class="btn btn-o" href="#">Connexion</a>
+  <div class="r" id="navAuth">
+    <a class="btn btn-o" href="#connexion">Connexion</a>
     <a class="btn btn-g" href="#">S'inscrire</a>
+  </div>
+  <div class="r" id="navUser" hidden>
+    <span class="hello"><b id="helloName">Bonjour</b><small id="helloRole">Client</small></span>
+    <button type="button" class="btn btn-o" id="logoutBtn">Quitter</button>
   </div>
 </header>
 
@@ -275,7 +290,8 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
   </div>
 </section>
 
-<section id="rejoindre" class="blk">
+
+  <section id="rejoindre" class="blk">
   <div class="sh"><div><span class="kick">Rejoins-nous</span><h2>Tu vends ou tu livres ?</h2></div></div>
   <div class="join">
     <div class="jc r"><h3>Restaurant</h3><p>Fais découvrir ta cuisine à de nouveaux clients. Commission de 10 % sur les plats.</p><a class="btn btn-g" href="#devenir-restaurant">Devenir restaurant</a></div>
@@ -472,13 +488,60 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
 </main>
 </div>
 
+<div id="vue-connexion" hidden>
+<main>
+<div class="backbar"><button type="button" class="btn btn-o" id="connBack">← Retour</button></div>
+
+<section class="blk" id="connBox">
+  <div class="sh"><div><span class="kick">Bienvenue</span><h2>Se connecter</h2></div></div>
+  <p class="note" id="connSub">Connecte-toi pour commander.</p>
+  <div class="roles" role="tablist" aria-label="Qui se connecte ?">
+    <button type="button" class="role on" data-role="Client">Client</button>
+    <button type="button" class="role" data-role="Restaurant">Restaurant</button>
+    <button type="button" class="role" data-role="Livreur">Livreur</button>
+  </div>
+  <form id="connForm" novalidate autocomplete="off">
+    <label class="fld"><span>E-mail</span><input type="email" id="connMail" inputmode="email" autocomplete="email" maxlength="120"></label>
+    <label class="fld"><span>Mot de passe</span><span class="pw"><input type="password" id="connPw" autocomplete="current-password" maxlength="80" placeholder="8 caractères minimum"><button type="button" class="eye" id="connEye" aria-label="Afficher le mot de passe"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.6"/></svg></button></span></label>
+    <button type="submit" class="btn btn-g" style="width:100%;min-height:48px;margin-top:16px">Se connecter</button>
+    <div class="err" id="connErr" role="alert"></div>
+  </form>
+  <div style="text-align:center;margin-top:6px"><button type="button" class="lnk" id="connForgot">Mot de passe oublié ?</button></div>
+  <p class="note" style="text-align:center">Pas encore de compte ? <button type="button" class="lnk" id="connSignup">S'inscrire</button></p>
+  <p class="note" id="connSignupNote" style="text-align:center" hidden>La page S'inscrire arrive juste après.</p>
+</section>
+
+  <section class="blk" id="resetBox" hidden>
+  <div class="pind" aria-hidden="true"><i class="on"></i><i></i><i></i><span id="resetInd">Étape 1 / 3</span></div>
+  <div class="rstep on" data-s="1">
+    <h3>Mot de passe oublié</h3>
+    <label class="fld"><span>E-mail</span><input type="email" id="resetMail" inputmode="email" autocomplete="email" maxlength="120"></label>
+  </div>
+  <div class="rstep" data-s="2">
+    <h3>Code e-mail</h3>
+    <p>On t'a envoyé un code à 6 chiffres à <b id="resetMailShow"></b>. Entre-le ici.</p>
+    <label class="fld" style="margin-top:14px"><span>Code à 6 chiffres</span><input type="text" id="resetCode" class="code" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="6" placeholder="······"></label>
+    <button type="button" class="lnk" id="resetResend">Renvoyer le code</button>
+  </div>
+  <div class="rstep" data-s="3">
+    <h3>Nouveau mot de passe</h3>
+    <label class="fld"><span>Nouveau mot de passe</span><span class="pw"><input type="password" id="resetPw1" autocomplete="new-password" maxlength="80" placeholder="8 caractères minimum"><button type="button" class="eye" id="resetEye1" aria-label="Afficher le mot de passe"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.6"/></svg></button></span></label>
+    <label class="fld"><span>Confirme ton mot de passe</span><span class="pw"><input type="password" id="resetPw2" autocomplete="new-password" maxlength="80"><button type="button" class="eye" id="resetEye2" aria-label="Afficher le mot de passe"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.6"/></svg></button></span></label>
+  </div>
+  <div class="err" id="resetErr" role="alert"></div>
+  <div class="pgnav" id="resetNav"><button type="button" class="btn btn-o" id="resetBack">← Retour</button><button type="button" class="btn btn-g next" id="resetNext">Suivant →</button></div>
+  <div class="ok" id="resetOk" role="status" hidden><b>✓ Mot de passe changé.</b><span>Tu peux te connecter.</span><button type="button" class="btn btn-g" id="resetGoLogin" style="margin-top:12px">Aller à la connexion</button></div>
+</section>
+</main>
+</div>
+
 <footer id="pied">
   <picture><source media="(prefers-color-scheme: light)" srcset="images/mokova-logo-jour.webp"><img class="logo-img" src="images/mokova-logo-nuit.webp" alt="MOKOVA"></picture>
   <p style="color:var(--tx)">MOKOVA — Manje Ou, Kote Ou Vle A</p>
   <nav aria-label="Pied de page">
     <a href="#top">À propos</a><a href="#restaurants">Restaurants</a>
     <a href="#devenir-restaurant">Devenir restaurant</a>
-    <a href="#devenir-livreur">Devenir livreur</a><a href="#">Connexion</a>
+    <a href="#devenir-livreur">Devenir livreur</a><a href="#connexion">Connexion</a>
     <a href="#">Aide et contact</a>
   </nav>
 </footer>
@@ -608,8 +671,8 @@ $('f').addEventListener('submit',function(e){e.preventDefault();if(!next.disable
 code.addEventListener('input',function(){code.value=code.value.replace(/\D/g,'').slice(0,6);err.textContent='';refresh()});
 $('resend').addEventListener('click',function(){$('resent').textContent='Nouveau code envoyé à '+val('pmail')+'.';code.value='';refresh();code.focus()});
 refresh();
-})();
 
+})();
 (function(){
 var $=function(i){return document.getElementById(i)};
 var cur=1,TOTAL=6;
@@ -713,7 +776,6 @@ code.addEventListener('input',function(){code.value=code.value.replace(/\D/g,'')
 $('lresend').addEventListener('click',function(){$('lresent').textContent='Nouveau code envoyé à '+val('lmail')+'.';code.value='';refresh();code.focus()});
 refresh();
 })();
-
 (function(){
 var pages=[document.getElementById('rp1'),document.getElementById('rp2'),document.getElementById('rp3')];
 var bars=document.querySelectorAll('#vue-resto .pind i');
@@ -747,17 +809,110 @@ document.getElementById('lp2Next').addEventListener('click',function(){lpShow(3)
 })();
 
 (function(){
+var $=function(i){return document.getElementById(i)};
+var role='Client';
+var subs={'Client':'Connecte-toi pour commander.','Restaurant':'Connecte-toi pour gérer ton restaurant.','Livreur':'Connecte-toi pour recevoir tes courses.'};
+document.querySelectorAll('.role').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.role').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');role=b.getAttribute('data-role');
+    $('connSub').textContent=subs[role];
+  });
+});
+function eye(btnId,inputId){
+  var b=$(btnId),i=$(inputId);
+  b.addEventListener('click',function(){
+    i.type=i.type==='password'?'text':'password';
+    b.setAttribute('aria-label',i.type==='password'?'Afficher le mot de passe':'Masquer le mot de passe');
+    i.focus();
+  });
+}
+eye('connEye','connPw');eye('resetEye1','resetPw1');eye('resetEye2','resetPw2');
+function validMail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.exec(v)!==null}
+function firstName(mail){
+  var local=(mail.split('@')[0]||'').split(/[._\-+]/)[0];
+  return local?local.charAt(0).toUpperCase()+local.slice(1):'';
+}
+function login(){
+  var mail=$('connMail').value.trim(),pw=$('connPw').value,err=$('connErr');
+  if(!validMail(mail)){err.textContent='Entre une adresse e-mail valide.';return}
+  if(pw.length<8){err.textContent='Ton mot de passe doit avoir au moins 8 caractères.';return}
+  err.textContent='';
+  $('helloName').textContent='Bonjour, '+firstName(mail);
+  $('helloRole').textContent=role;
+  $('navAuth').hidden=true;$('navUser').hidden=false;
+  location.hash='#top';
+}
+$('connForm').addEventListener('submit',function(e){e.preventDefault();login()});
+$('logoutBtn').addEventListener('click',function(){
+  $('navUser').hidden=true;$('navAuth').hidden=false;
+  $('connPw').value='';location.hash='#top';
+});
+$('connBack').addEventListener('click',function(){location.hash='#top'});
+$('connSignup').addEventListener('click',function(){$('connSignupNote').hidden=false});
+var rcur=1,RTOTAL=3;
+var rsteps=[].slice.call(document.querySelectorAll('#resetBox .rstep'));
+var rcode=$('resetCode');
+function rshow(n){
+  rcur=n;
+  rsteps.forEach(function(s){s.classList.toggle('on',+s.getAttribute('data-s')===n)});
+  var bars=document.querySelectorAll('#resetBox .pind i');
+  bars.forEach(function(b,i){b.classList.toggle('on',i<n)});
+  $('resetInd').textContent='Étape '+n+' / 3';
+  $('resetErr').textContent='';
+  if(n===2){$('resetMailShow').textContent=$('resetMail').value.trim()}
+  $('resetNext').disabled=(n===2&&rcode.value.length!==6);
+}
+function rcheck(n){
+  if(n===1&&!validMail($('resetMail').value.trim()))return 'Entre une adresse e-mail valide.';
+  if(n===2&&rcode.value.length!==6)return 'Entre les 6 chiffres du code.';
+  if(n===3){
+    if($('resetPw1').value.length<8)return 'Ton nouveau mot de passe doit avoir au moins 8 caractères.';
+    if($('resetPw1').value!==$('resetPw2').value)return 'Les deux mots de passe ne sont pas identiques.';
+  }
+  return '';
+}
+$('connForgot').addEventListener('click',function(){
+  $('connBox').hidden=true;$('resetBox').hidden=false;
+  $('resetOk').hidden=true;$('resetNav').hidden=false;
+  rshow(1);
+});
+$('resetBack').addEventListener('click',function(){
+  if(rcur>1)rshow(rcur-1);
+  else{$('resetBox').hidden=true;$('connBox').hidden=false}
+});
+$('resetNext').addEventListener('click',function(){
+  var m=rcheck(rcur);
+  if(m){$('resetErr').textContent=m;return}
+  if(rcur<RTOTAL)rshow(rcur+1);
+  else{
+    rsteps.forEach(function(s){s.classList.remove('on')});
+    $('resetNav').hidden=true;$('resetOk').hidden=false;
+  }
+});
+$('resetGoLogin').addEventListener('click',function(){
+  $('resetBox').hidden=true;$('connBox').hidden=false;
+  $('connMail').value=$('resetMail').value.trim();
+  $('connPw').value='';$('connPw').focus();
+});
+rcode.addEventListener('input',function(){rcode.value=rcode.value.replace(/\D/g,'').slice(0,6);$('resetErr').textContent='';$('resetNext').disabled=rcode.value.length!==6});
+$('resetResend').addEventListener('click',function(){rcode.value='';$('resetNext').disabled=true;rcode.focus()});
+})();
+
+(function(){
 var RR=['#devenir-restaurant','#r-comment','#r-avantages','#r-inscription'];
 var RL=['#devenir-livreur','#l-comment','#l-avantages','#l-inscription'];
+var RC=['#connexion'];
 var T=document.title;
 function route(){
   var h=location.hash;
-  var view=RR.indexOf(h)>-1?'resto':(RL.indexOf(h)>-1?'liv':'vitrine');
+  var view=RR.indexOf(h)>-1?'resto':(RL.indexOf(h)>-1?'liv':(RC.indexOf(h)>-1?'conn':'vitrine'));
   document.getElementById('vitrine').hidden=view!=='vitrine';
   document.getElementById('vue-resto').hidden=view!=='resto';
   document.getElementById('vue-livreur').hidden=view!=='liv';
+  document.getElementById('vue-connexion').hidden=view!=='conn';
   document.getElementById('pied').hidden=view!=='vitrine';
-  document.title=view==='resto'?'Devenir restaurant — MOKOVA':(view==='liv'?'Devenir livreur — MOKOVA':T);
+  document.title=view==='resto'?'Devenir restaurant — MOKOVA':(view==='liv'?'Devenir livreur — MOKOVA':(view==='conn'?'Connexion — MOKOVA':T));
   if(view==='resto'){
     if(h==='#r-avantages')window.rpShow(2);
     else if(h==='#r-inscription')window.rpShow(3);
@@ -766,6 +921,8 @@ function route(){
     if(h==='#l-avantages')window.lpShow(2);
     else if(h==='#l-inscription')window.lpShow(3);
     else window.lpShow(1);
+  }else if(view==='conn'){
+    window.scrollTo({top:0,left:0,behavior:'instant'});
   }else{
     var t=h.length>1?document.getElementById(h.slice(1)):null;
     if(t)t.scrollIntoView();else window.scrollTo({top:0,left:0,behavior:'instant'});
