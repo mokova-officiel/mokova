@@ -36,6 +36,8 @@ img{display:block;max-width:100%}
 .nav .cap{font-size:10px;margin-top:2px;white-space:nowrap}
 .nav .r{display:flex;grid-column:2;justify-self:end;gap:8px}
 .nav .r .btn{min-height:36px;padding:0 12px;font-size:12px}
+  .nav .r.swap .btn-o{background:var(--g);color:#fff;border-color:transparent}
+  .nav .r.swap .btn-g{background:transparent;border-color:var(--g);color:var(--gt)}
 .logo-img{height:28px;width:auto;margin:0}
 @media(min-width:600px){.logo-img{height:32px}.nav .r .btn{min-height:40px;padding:0 16px;font-size:13px}}
 /* hero */
@@ -391,7 +393,7 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
 <script>
 // Photo en échec : on la masque et on garde le fond doux, sans icône.
 document.querySelectorAll('img').forEach(function(i){i.addEventListener('error',function(){i.style.visibility='hidden'})});
-setInterval(function(){var j=document.querySelector('.join');if(j){j.classList.toggle('swap')}},3000);
+setInterval(function(){var j=document.querySelector('.join');if(j){j.classList.toggle('swap')}var n=document.querySelector('.nav .r');if(n){n.classList.toggle('swap')}},3000);
 var ch=document.querySelector('.chips');
 if(ch){ch.innerHTML+=ch.innerHTML;setInterval(function(){ch.scrollLeft+=1;if(ch.scrollLeft>=ch.scrollWidth/2)ch.scrollLeft=0},30)}
 var bn=document.querySelector('.banner');
