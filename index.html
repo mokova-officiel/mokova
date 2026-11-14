@@ -379,7 +379,7 @@ input:focus,select:focus{outline:2px solid var(--gt);outline-offset:1px;border-c
 </main>
 </div>
 
-<footer>
+<footer id="pied">
   <picture><source media="(prefers-color-scheme: light)" srcset="images/mokova-logo-jour.webp"><img class="logo-img" src="images/mokova-logo-nuit.webp" alt="MOKOVA"></picture>
   <p style="color:var(--tx)">MOKOVA — Manje Ou, Kote Ou Vle A</p>
   <nav aria-label="Pied de page">
@@ -540,6 +540,7 @@ function route(){
   var h=location.hash,r=R.indexOf(h)>-1;
   document.getElementById('vitrine').hidden=r;
   document.getElementById('vue-resto').hidden=!r;
+  document.getElementById('pied').hidden=r;
   document.title=r?'Devenir restaurant — MOKOVA':T;
   if(r){
     if(h==='#r-avantages')window.rpShow(2);
